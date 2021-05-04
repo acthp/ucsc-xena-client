@@ -578,8 +578,6 @@ export default class Column extends PureComponent {
 	const subCohortA = `subCohortSamples1=${name}:${heatmapLabels[0]}:${subCohortData[0]}&selectedSubCohorts1=${heatmapLabels[0]}&cohort1Color=${categoryMore[heatmapCodes[0]]}`;
 	const subCohortB = `subCohortSamples2=${name}:${heatmapLabels[1]}:${subCohortData[1]}&selectedSubCohorts2=${heatmapLabels[1]}&cohort2Color=${categoryMore[heatmapCodes[1]]}`;
 
-    // const ROOT_URL = 'https://xenademo.berkeleybop.io/xena/#';
-    // const ROOT_URL = 'http://localhost:3000/#';
    const finalUrl = `${GENESETS_VIEWER_URL}cohort=${name}&wizard=analysis&${subCohortA}&${subCohortB}`;
 
 	this.setState({
@@ -840,7 +838,7 @@ export default class Column extends PureComponent {
 				onDiff, specialDownloadMenu, isSig}),
 			[kmDisabled, kmTitle] = disableKM(column, hasSurvival),
 			chartDisabled = disableChart(column),
-	    canDoGeneSetComparison = false && this.canDoGeneSetComparison(),
+	    canDoGeneSetComparison = this.canDoGeneSetComparison(),
       status = _.get(data, 'status'),
 			refreshIcon = (<i className='material-icons' onClick={onReset}>close</i>),
 			// move this to state to generalize to other annotations.
